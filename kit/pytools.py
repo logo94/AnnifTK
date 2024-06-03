@@ -34,7 +34,7 @@ def convert_keys(sbj: str):
         keys = sbj.split(" – ")
     elif " § " in sbj:
         keys = sbj.split(" § ")
-    elif " ; " in sbj:
+    elif "; " in sbj:
         keys = sbj.split("; ")
     else: 
         keys = []
