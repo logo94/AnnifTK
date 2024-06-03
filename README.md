@@ -8,75 +8,57 @@ Python script a supporto della preparazione di corpora di addestramento per il s
   <img src="https://github.com/logo94/AnnifTK/blob/main/examples/img/AnnifTK_screen.png" />
 </p>
 
-Annif Toolkit permette di convertire file dal formato `.csv`, `.xlsx`, `.json` e `.pdf` a coppie di file `.txt` e `.key` compatibili con il software Annif. Dato un file d'ingresso con intestazione fissa, AnnifTK esegue in automatico la conversione di ogni riga creando in una cartella omonima al file processato coppie di file contenenti testo e relativi tag semantici.
+Annif Toolkit mette a disposizione i seguenti servizi:
+- conversione di file dal formato `.csv`, `.xlsx`, `.json` a coppie di file `.txt` e `.key` compatibili con il software Annif: dato un file d'ingresso con intestazione fissa, AnnifTK esegue in automatico la conversione di ogni riga creando in una cartella omonima al file processato coppie di file contenenti testo e relativi tag semantici.
+- conversione di file dal formato `.pdf` al formato `.txt`: data una cartella di ingresso, per ogni file contenuto nella cartella viene creato un nuovo file con lo stesso nome ma con estensione `.txt`.
+- creazione di un file vocabolario in un formato compatibile con Annif. Dato un file di ingresso, da ogni riga vengono estratti i tag semantici (Colonna `Key`), vengono cercati gli URI in Wikidata e le coppie di URI / etichetta vengono salvati in un file `.csv` già predisposto per il caricamento in Annif.  
 
-Oltre alla preparazione del corpus di addestramento AnnifTK permette di creare anche un file vocabolario: partendo dai tag semantici contenuti nel file di ingresso, AnnifTK cerca i relativi URIs su Wikidata e li salva all'interno di un file CSVche potrà essere caricato direttamente in Annif.
-
-## Requisiti ##
-Per l'utilizzo degli scripts è necessario aver scaricato `Python 3.8+` sul proprio dispositivo, per installare Python seguire le istruzioni riportate al seguente [link](https://www.python.org/downloads/).
-
-Una volta eseguito il download è possibile verificare le versioni di `Python` e `pip` tramite i comandi:
-
-```
-python --version
-```
-```
-pip --version
-```
 
 ## Installazione ##
-Per scaricare l'applicazione localmente premere il tasto verde 'Code' in alto a destra e scegliere il sistema di download preferito, nel caso non si conoscano le opzioni elencate, premere sul tasto 'Download ZIP':
-
-<p align="center">
-  <img src="https://github.com/logo94/AnnifTK/blob/main/examples/img/AnnifTK_download.png" />
-</p>
-
-Una volta scaricato il file, decomprimerlo ed entrare nella cartella risultante
-
-## Ambiente virtuale ##
-Per non compromettere l'installazione di Python e le relative librerie è consigliabile creare un ambiente virtuale; per la sua creazione, una volta dentro la cartella dell'applicazione, procedere come segue:
-
-Aprire il terminale all'interno della cartella (premere il tasto destro del mouse all'interno di uno spazio vuoto della cartella e selezionare l'opzione Apri nel Terminale)
-
-Creare l'ambiente virtuale, quindi digitare:
-```
-python -m venv pyenv
-```
-oppure, in caso di errore:
-```
-python3 -m venv pyenv
-```
-
-### Linux
-Per attivare l'ambiente virtuale con un sistema operativo Linux digitare:
-```
-source pyenv/bin/activate
-```
-### Windows
-L'attivazione dell'ambiente virtuale su sistema operativo Windows richiede i privilegi di Amministratore di sistema, è quindi necessario aprire il Terminale o Windows PowerShell come amministratore. Una volta eseguita la procedura sopra riportata digitare:
-```
-pyenv\Scripts\activate
-```
-
->Nel caso in cui non ci sia la possibilità di ottenere i privilegi di amministratore questo passaggio può essere saltato in modo che sia utilizzato l'ambiente virtuale Python di sistema.
-
-## Librerie ##
-Per il suo funzionamento Catabot utilizza una serie di librerie esterne, per il corretto funzionamento dell'applicazione è necessario procedere con il download di tutti i pacchetti necessari, ovvero:
-
-```
-pip install -r requirements.txt
-```
-### Windows
-Per l'installazione delle librerie è necessario disporre dei perivilegi di amministratore di sistema, in alternativa è possibile avviare l'installazione senza privilegi specifici attraverso il comando:
-```
-pip install -r requirements.txt --user
-```
-> Eventuali messaggi di Warning durante l'installazione potranno essere ignorati
-
+> Per le istruzioni di installazione consultare la sezione [wiki](https://github.com/logo94/AnnifTK/wiki)
 
 
 ## Utilizzo ##
-Una volta scaricato il repository e scaricate le librerie necessarie, per avviare l'applicazione sarà sufficiente eseguire il comando:
+Per il suo funzionamento AnnifTK richiede la preparazione di file di ingresso strutturato nel seguente modo:
+
+### CSV, Excel ###
+Per essere letto e convertito correttamente un file in formato CSV o XLSX deve riportare il seguente header e la seguente struttura:
+
+
+| ID | Text | Key
+| --- | --- | ---
+| xxx | xxx | xxx
+
+
+### JSON ###
+Per essere letto e convertito correttamente un file in formato JSON deve essere strutturato come un array di oggetti, quindi:
+
+```
+[
+    {
+        "ID": "xxx",
+        "Text": "xxx",
+        "Key": "xxx; xxx; xxx"
+    }
+]
+
+```
+In cui:
+
+**ID**: I valori contenuti nella colonna `ID` verranno utilizzati per nominare le coppie di file .txt e .key, i valori ID devono essere univoci all'interno del file
+
+**Text**: I valori contenuti nella colonna `Text` verranno convertiti in file .txt contenenti il testo da utilizzare per l'addestramento
+
+**Key**: I valori contenuti nella colonna `Key` verranno convertiti in file .key contenenti i tag semantici associati al testo. 
+
+Nel caso in cui il campo Key contenga più di un'etichetta, i separatori validi sono `; `, ` - `, ` § ` 
+
+> Per visualizzare degli esempi di file consultare la cartella [examples](https://github.com/logo94/AnnifTK/tree/main/examples)
+
+
+## Conversione
+
+Una volta preparato il file di input, scaricato il repository e scaricate le librerie necessarie, per avviare l'applicazione sarà sufficiente eseguire il comando:
 ```
 python anniftk.py [options]
 ```
@@ -85,4 +67,14 @@ oppure:
 python3 anniftk.py [options]
 ```
 
+In cui [options] equivale ad uno o più comandi specifici
+
 ### Comandi ###
+Per selezionare la modalità sostituire [options] con uno o più dei seguenti comandi:
+| Comando | Descrizione |
+| --- | --- |
+| [-h] --help | Viene mostrato il messaggio di aiuto in cui sono riportati tutti i comandi e descrizioni |
+| [-i]  --file | Selezione di un singolo file da processare tramite finestra di sistema (UI) |
+| [-o] --folder | Selezione, tramite finestra di sistema (UI), di una cartella contente uno o più file PDF da convertire in formato TXT|
+| [-c] --cli | Selezione di un file o di una cartella tramite riga di comanda, verrà richiesto l'inserimento di un full-path |
+| [-v] --vocab | Selezione di un file da convertire in un file vocabolario in formato CSV, può essere utilizzato in combinazione ai comandi --file e --cli |
