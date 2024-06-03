@@ -5,7 +5,7 @@
 Python script a supporto della preparazione di corpora di addestramento per il software Annif
 
 <p align="center">
-  <img src="https://github.com/logo94/AnnifTK/blob/main/data/AnnifTK_screen.png" />
+  <img src="https://github.com/logo94/AnnifTK/blob/main/examples/img/AnnifTK_screen.png" />
 </p>
 
 ## Requisiti ##
@@ -24,7 +24,7 @@ pip --version
 Per scaricare l'applicazione localmente premere il tasto verde 'Code' in alto a destra e scegliere il sistema di download preferito, nel caso non si conoscano le opzioni elencate, premere sul tasto 'Download ZIP':
 
 <p align="center">
-  <img src="https://github.com/logo94/catabot/blob/main/img/catabot-download.png" />
+  <img src="https://github.com/logo94/AnnifTK/blob/main/examples/img/AnnifTK_download.png" />
 </p>
 
 Una volta scaricato il file, decomprimerlo ed entrare nella cartella risultante
