@@ -19,7 +19,7 @@ Annif Toolkit mette a disposizione i seguenti servizi:
 
 
 ## Utilizzo ##
-Per il suo funzionamento AnnifTK richiede la preparazione di file di ingresso strutturato nel seguente modo:
+Per il suo funzionamento AnnifTK richiede la preparazione di un file di ingresso strutturato nel seguente modo:
 
 ### CSV, Excel ###
 Per essere letto e convertito correttamente un file in formato CSV o XLSX deve riportare il seguente header e la seguente struttura:
