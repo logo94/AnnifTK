@@ -8,6 +8,10 @@ Python script a supporto della preparazione di corpora di addestramento per il s
   <img src="https://github.com/logo94/AnnifTK/blob/main/examples/img/AnnifTK_screen.png" />
 </p>
 
+Annif Toolkit permette di convertire file dal formato `.csv`, `.xlsx`, `.json` e `.pdf` a coppie di file `.txt` e `.key` compatibili con il software Annif. Dato un file d'ingresso con intestazione fissa, AnnifTK esegue in automatico la conversione di ogni riga creando in una cartella omonima al file processato coppie di file contenenti testo e relativi tag semantici.
+
+Oltre alla preparazione del corpus di addestramento AnnifTK permette di creare anche un file vocabolario: partendo dai tag semantici contenuti nel file di ingresso, AnnifTK cerca i relativi URIs su Wikidata e li salva all'interno di un file CSVche potrà essere caricato direttamente in Annif.
+
 ## Requisiti ##
 Per l'utilizzo degli scripts è necessario aver scaricato `Python 3.8+` sul proprio dispositivo, per installare Python seguire le istruzioni riportate al seguente [link](https://www.python.org/downloads/).
 
