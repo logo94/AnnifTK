@@ -60,7 +60,7 @@ def main():
     # Help
     if not args.file and not args.folder and not args.cli and not args.vocab:
         print('')
-        logo = '''
+        logo = r'''
           /\               (_)/ _| |__   __| |/ /
          /  \   _ __  _ __  _| |_     | |  | ' / 
         / /\ \ | '_ \| '_ \| |  _|    | |  |  <  
