@@ -39,7 +39,7 @@ def read_json(filepath: str):
     
 def vocab_json(filepath: str):
     try:
-        with open(filepath) as json_file:
+        with open(filepath, encoding='utf-8') as json_file:
             data = json.load(json_file)
         vocab_array = []
         for item in data:
