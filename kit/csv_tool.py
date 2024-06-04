@@ -42,7 +42,8 @@ def read_csv(filepath: str):
 
             return vocab_array
                     
-    except:
+    except Exception as err:
+        print(str(err))
         raise Exception()
 
 def vocab_csv(filepath: str):
@@ -61,7 +62,8 @@ def vocab_csv(filepath: str):
                     vocab_array = vocab_append(vocab_array, keys)                          
             return vocab_array
                     
-    except:
+    except Exception as err:
+        print(str(err))
         raise Exception()
 
         
