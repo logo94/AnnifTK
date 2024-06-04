@@ -33,7 +33,8 @@ def read_json(filepath: str):
 
         return vocab_array
     
-    except:
+    except Exception as err:
+        print(str(err))
         raise Exception()
     
 def vocab_json(filepath: str):
@@ -53,5 +54,6 @@ def vocab_json(filepath: str):
 
         return vocab_array
     
-    except:
+    except Exception as err:
+        print(str(err))
         raise Exception()
