@@ -41,7 +41,8 @@ def read_excel(filepath: str):
             
             return vocab_array
     
-    except:
+    except Exception as err:
+        print(str(err))
         raise Exception()
     
 def vocab_excel(filepath: str):
@@ -59,5 +60,6 @@ def vocab_excel(filepath: str):
                 vocab_array = vocab_append(vocab_array, keys)
             return vocab_array
     
-    except:
+    except Exception as err:
+        print(str(err))
         raise Exception()
