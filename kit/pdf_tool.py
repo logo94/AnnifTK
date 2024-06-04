@@ -19,6 +19,8 @@ def read_pdf(folderpath):
                         text = page.extract_text().replace("-\n", "").replace("a`", "à ").replace("`a", "à ").replace("e`", "è ").replace("`e", "è ").replace("e´", "é ").replace("i`u", "iù ").replace("i`", "ì ").replace("`i", "ì ").replace("o`", "ò ").replace("`o", "ò ").replace("u`", "ù ").replace("`u", "ù ")
                         tf.write(text)
             else: continue
-        except: continue
+        except Exception as err:
+            print(str(err))
+            continue
     
     return
