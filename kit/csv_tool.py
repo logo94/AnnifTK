@@ -11,7 +11,7 @@ def check_header(row: list[str]):
 
 def read_csv(filepath: str):
     try:
-        num_lines = sum(1 for line in open(filepath, 'r'))
+        num_lines = sum(1 for line in open(filepath, 'r', encoding='utf-8'))
         vocab_array = []
         with open(filepath, 'r', encoding='utf-8') as csv_file:
             read = reader(csv_file)
@@ -47,7 +47,7 @@ def read_csv(filepath: str):
 
 def vocab_csv(filepath: str):
     try:
-        num_lines = sum(1 for line in open(filepath, 'r'))
+        num_lines = sum(1 for line in open(filepath, 'r', encoding='utf-8'))
         vocab_array = []
         with open(filepath, 'r', encoding='utf-8') as csv_file:
             read = reader(csv_file)
