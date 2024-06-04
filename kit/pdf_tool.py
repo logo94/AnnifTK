@@ -9,10 +9,10 @@ def read_pdf(folderpath):
         try:
             if str(file).endswith('.pdf'):
                 
-                reader = PdfReader(folderpath + "/" + file)
+                reader = PdfReader(os.path.join(folderpath, file))
                 pp = len(reader.pages)
 
-                txt_file = folderpath + "/" + file.split(".")[0] + ".txt"
+                txt_file = os.path.join(folderpath, file.split(".")[0] + ".txt")
                 with open(txt_file, 'w+', encoding='utf-8', newline='') as tf:
                     for p in range(1, pp):
                         page = reader.pages[p]
