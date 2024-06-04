@@ -1,3 +1,4 @@
+import os
 import openpyxl
 from tqdm import tqdm
 from kit.pytools import create_folder, write_txt, write_key, convert_keys, vocab_append
@@ -26,13 +27,13 @@ def read_excel(filepath: str):
                 text = sh.cell(row = i, column=2).value
                 keys = convert_keys(sh.cell(row = i, column=3).value)
 
-                txt_file = foldername + '/' + filename + '.txt'
+                txt_file = os.path.join(foldername, filename + '.txt')
                 if write_txt(txt_file, text): pass
                 else: 
                     print('Errore: la riga ' + str(i) + '  contiene un valore non valido')
                     continue
                 
-                key_file = foldername + "/" + filename + ".key"
+                key_file = os.path.join(foldername, filename + ".key")
                 if write_key(key_file, keys): pass
                 else: print('Errore durante la scrittura di ' + filename + '.key')
 
