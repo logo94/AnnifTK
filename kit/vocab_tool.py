@@ -49,7 +49,7 @@ def create_vocab(filepath: str, keys: list[str]):
     try:
         filename = filepath.split('.')[0]
         vocab_file = filename + '_voc_it.csv'
-        with open(vocab_file, 'w+', encoding='utf-8') as voc_file:
+        with open(vocab_file, 'w+', encoding='utf-8', newline='') as voc_file:
             voc = writer(voc_file)
             headerow = ['uri', 'label_it', 'notation']
             voc.writerow(headerow)
