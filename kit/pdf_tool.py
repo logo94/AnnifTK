@@ -1,6 +1,6 @@
 import os
 from tqdm import tqdm
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 
 def read_pdf(folderpath):
     file_list = os.listdir(folderpath)
