@@ -26,7 +26,7 @@ def wikidata_api(label):
                     wikidata_id = "https://www.wikidata.org/wiki/" + candidate['id']
                     obj = {
                         "uri": wikidata_id if wikidata_id is not None else '',
-                        "label": str(candidate['name'])
+                        "label": label
                     }
                     break
                 else:  
