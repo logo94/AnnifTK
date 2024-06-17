@@ -48,12 +48,12 @@ def convert_keys(sbj: str):
         keys = sbj.split("; ")
     else: 
         keys = []
-        keys.append(sbj)
+        keys.append(sbj.strip())
     return keys
 
 def vocab_append(vocs: list[str], keys: list[str]):
     for key in keys:
-        key = key_clean(key)
+        key = key_clean(key.strip())
         if key not in vocs:
             vocs.append(key)
     return vocs
