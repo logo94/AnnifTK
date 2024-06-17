@@ -1,5 +1,6 @@
 Elenco comandi:
 
+
 1. Analisi preliminaer e selezione sito
 
 Visualizzazione file HTML
@@ -11,6 +12,7 @@ oppure
 ```
 CTRL + U
 ```
+
 
 2. Raccolta link
 
@@ -42,6 +44,7 @@ Checkbox `Tutti i link`
 
 Selezione `Salva CSV`
 
+
 3. Raccolta metadati descrittivi
 
 Selezione TAB `HTML`
@@ -59,6 +62,7 @@ Selezione `Carica CSV`
 
 Selezione `Salva CSV`
 
+
 6. Conversione corpus di addestramento e vocabolario
 
 Download AnnifTK: https://github.com/logo94/AnnifTK/wiki#download 
@@ -68,6 +72,7 @@ Attivazione ambiente virtuale
 ```
 python3 anniftk.py -i -v
 ```
+
 
 7. Creazione file projects.cfg
 
@@ -82,6 +87,7 @@ cluster_k - numero di cluster (parametro già ottimizzato)
 max_depth - profondità cluster (parametro già ottimizzato)
 
 Il file `projects.cfg` va collocato all'interno della cartella in cui è stato scaricato, e in cui viene lanciato, Annif
+
 
 8. Addestramento algoritmi
 
@@ -122,6 +128,7 @@ python3
 ```
 punkt.download('punkt')
 ```
+
 
 9. Esposizione API Annif
 
