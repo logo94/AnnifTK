@@ -77,14 +77,23 @@ python3 anniftk.py -i -v
 7. Creazione file projects.cfg
 
 [xxx] - identificativo univoco del progetto  
+
 name - nome del singolo progetto
+
 language - lingua del progetto (ISO 639-2)
+
 backend - algoritmo
+
 analyzer - tokenizzatore
+
 vocab - ID vocabolario di riferimento
+
 cluster_balanced - tipologia blanciamento cluster (parametro già ottimizzato)
+
 cluster_k - numero di cluster (parametro già ottimizzato)
+
 max_depth - profondità cluster (parametro già ottimizzato)
+
 
 Il file `projects.cfg` va collocato all'interno della cartella in cui è stato scaricato, e in cui viene lanciato, Annif
 
