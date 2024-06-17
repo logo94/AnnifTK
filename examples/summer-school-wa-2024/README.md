@@ -1,7 +1,7 @@
 Elenco comandi:
 
 
-1. Analisi preliminaer e selezione sito
+1. Analisi preliminare e selezione sito
 
 Visualizzazione file HTML
 
