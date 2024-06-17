@@ -123,10 +123,10 @@ python3
 ```
 
 ```
-> import punkt
+>> import punkt
 ```
 ```
-punkt.download('punkt')
+>> punkt.download('punkt')
 ```
 
 
